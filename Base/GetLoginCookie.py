@@ -47,11 +47,11 @@ class Cookie(BasePage):
         self.add_cookie(cookieData)
         self.open_url(url)
         self.driver.implicitly_wait(10)
-# if __name__ == '__main__':
-#     cookie = Cookie(driver=webdriver.Firefox())
-#     phone = readconfig.inputPhone_cookie
-#     psw = readconfig.inputPsw_cookie
-#     urlcookie = readconfig.url_login
-#     url = readconfig.url_admin
-#     cookie.save_cookie(phone,psw,urlcookie)
+if __name__ == '__main__':
+    cookie = Cookie(driver=webdriver.Firefox())
+    phone = readconfig.inputPhone_cookie
+    psw = readconfig.inputPsw_cookie
+    urlcookie = readconfig.url_login
+    url = readconfig.url_admin
+    cookie.save_cookie(phone,psw,urlcookie)
 #     cookie.keep_login(url)
