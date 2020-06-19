@@ -8,6 +8,7 @@ company_list_btn = (By.XPATH, '//*[@class = "company-name"]')  # 0 点击展开�
 add_company_btn = (By.XPATH, '//*[@class = "lnr lnr-plus-circle"]')  # 1 点击添加公司按钮
 company_name_word = (By.XPATH, '//*[@class = "form-control"]')  # 2 公司名称输入框
 verify_add_company_btn = (By.XPATH, '//*[@class = "btn btn-primary"]')  # 3 确认添加公司
+cancel_add_company_btn = (By.XPATH,'//*[@id="cancel"]')   #取消添加公司
 company_name_text = (By.XPATH, '/html/body/div[1]/nav/div[2]/div/ul/li[2]/a/span')  # 4 header显示公司名称
 add_error_sever = (By.XPATH, '//*[@class = "layui-layer-content layui-layer-padding"]')  # 5 服务器错误信息提示
 select_vocation = (By.XPATH, '/html/body/div[2]/div/div/div[2]/form/div[2]/div[2]/select')  # 6 展开公司行业
@@ -41,6 +42,10 @@ class Add_company(BasePage):
     def add_company_verify(self):
         self.click_btn(*verify_add_company_btn)
         sleep(3)
+    # 取消添加公司
+    def cancel_add_company(self):
+        self.click_btn(*cancel_add_company_btn)
+        sleep(3)
     # hearde显示的公司名称
     def companyName(self):
         return self.get_text(*company_list_btn)
@@ -67,7 +72,7 @@ class Add_company(BasePage):
         self.company_vocation_list()
         self.select_education()
         self.add_company_verify()
-        sleep(3)
+        # sleep(3)
     #选择水利水电行业
     def add_company_waterboard(self,companyName,url):
         self.keep_login_cookie(url)

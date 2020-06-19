@@ -15,10 +15,14 @@ class Cookie(BasePage):
     #     self.driverBase = DriverBase()
     #     self.driver = self.driverBase.open_broswer()    # 构造方法中写打开浏览器，会导致没调用一个方法时，都会多打开一次浏览器
     #     self.login = Login(self.driver)
-# 封装元素操作方法
-    def save_cookie(self,phone,psw,url):
+    def login(self,phone,psw,url):
         self.login = Login(self.driver)
         self.login.psw_login(phone,psw,url)
+# 封装元素操作方法
+    def save_cookie(self,phone,psw,url):
+        # self.login = Login(self.driver)
+        # self.login.psw_login(phone,psw,url)
+        self.login(phone,psw,url)
         login_cookie = self.get_login_cookie()
         yamlpath = os.path.abspath(os.path.dirname(__file__)) + '\login_cookie.yaml'
         cookie_value = login_cookie
